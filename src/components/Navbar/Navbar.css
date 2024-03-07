@@ -1,0 +1,131 @@
+.navbar {
+  position: fixed;
+  top: 20px;
+  height: 70px;
+  width: 92%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--secondary-text-color);
+  color: var(--primary-text-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 50px;
+  z-index: 5;
+}
+
+.logo {
+  color: var(--orange);
+  font-size: 1rem;
+  padding-left: 12px;
+  font-family: "Inconsolata";
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  list-style: none;
+}
+
+.nav-links {
+  text-decoration: none;
+  color: var(--primary-text-color);
+  font-size: 25px;
+  font-weight: 600;
+  padding: 0.7rem 1rem;
+  white-space: nowrap;
+}
+
+.nav-links:hover {
+  color: var(--orange);
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-links-mobile {
+  display: none;
+}
+
+.navbar-btn {
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  border: none;
+  background: transparent;
+  text-decoration: none;
+  color: var(--primary-text-color);
+  font-weight: 600;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.menuBtn {
+  display: none;
+}
+
+.navbar-btn.toggle {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 830px) {
+  .navbar {
+    height: 55px;
+  }
+
+  .logo {
+    font-size: 12px;
+  }
+
+  .menu {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    padding: 15px 10px;
+    padding-bottom: 40px;
+    display: none;
+    height: auto;
+    width: 45%;
+    z-index: -1;
+    background: inherit;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+    transition: 0.3s ease-in-out;
+  }
+
+  .navbar-btn {
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbarLink {
+    font-size: 25px;
+  }
+
+  .menuBtn {
+    height: 60px;
+    width: 60px;
+    padding: 15px;
+    display: block;
+    z-index: 1000;
+    cursor: pointer;
+    font-size: 28px;
+  }
+
+  .menu.menuOpen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+  }
+}

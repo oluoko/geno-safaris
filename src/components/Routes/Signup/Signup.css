@@ -1,0 +1,64 @@
+.login-container {
+  margin: 4rem 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container form {
+  position: relative;
+  padding: 3rem 2rem;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--secondary-text-color);
+  color: var(--primary-text-color);
+}
+
+.login-container .close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: var(--primary-text-color);
+}
+
+.login-container img {
+  width: 100px;
+}
+
+.login-container h1 {
+  font-size: 25px;
+  margin: 20px 0;
+}
+
+.login-container .button.google {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.login-container .button .icon {
+  font-size: 30px;
+  margin: 0 6px;
+}
+.link#text {
+  text-align: left;
+}
+
+@media screen and (max-width: 830px) {
+  .login-container form {
+    width: 350px;
+    margin-top: 25px;
+  }
+  .login-container h1 {
+    font-size: 20px;
+  }
+}

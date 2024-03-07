@@ -1,0 +1,117 @@
+.booking-container {
+  background-color: var(--secondary-text-color);
+  color: var(--primary-text-color);
+  box-shadow: var(--box-shadow);
+  width: 90%;
+  height: 120px;
+  position: absolute;
+  top: 83vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  border-radius: 15px;
+  padding: 0;
+  z-index: 3;
+}
+
+.booking-container div {
+}
+
+.box:nth-child(2) {
+  border-left: solid 1px rgba(130, 130, 130, 0.3);
+  border-right: solid 1px rgba(130, 130, 130, 0.3);
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  margin: 0;
+  width: 25%;
+  overflow: hidden;
+}
+
+.box .icon {
+  font-size: 30px;
+  margin: 20px;
+  color: var(--orange);
+}
+
+.box.search {
+  background-color: var(--orange);
+  color: var(--primary-text-color);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  cursor: pointer;
+}
+
+.box.search .icon {
+  color: var(--primary-text-color);
+}
+
+.box div input,
+.box div h2 {
+  width: 70%;
+}
+
+.box input {
+  border: none;
+  background-color: inherit;
+  color: var(--primary-text-color);
+  border-bottom: solid 2px rgba(130, 130, 130, 0.3);
+  overflow: hidden;
+}
+
+.box input:focus {
+  outline: none;
+  border-bottom: solid 1px var(--orange);
+  color: var(--orange);
+  overflow: hidden;
+}
+
+.box input[type="date"]::placeholder {
+  color: #999; /* Customize the placeholder color */
+}
+
+.box h2 {
+  font-size: 25px;
+}
+
+@media screen and (max-width: 830px) {
+  .booking-container {
+    height: 180px;
+    top: 83vh;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .box {
+    width: 50%;
+  }
+
+  .box.search {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 15px;
+  }
+
+  .box:nth-child(2),
+  .box:nth-child(4) {
+    border-left: solid 1px rgba(130, 130, 130, 0.3);
+    border-right: none;
+  }
+
+  .box:nth-child(1),
+  .box:nth-child(2) {
+    border-bottom: solid 1px rgba(130, 130, 130, 0.3);
+  }
+
+  .box h2 {
+    font-size: 18px;
+  }
+
+  .box .icon {
+    font-size: 27px;
+    margin: 15px;
+  }
+}
