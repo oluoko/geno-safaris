@@ -13,7 +13,7 @@ export const Navbar = ({ isdark, setisdark }) => {
     <>
       <nav className={`navbar menuItems ${menuOpen && menuOpen}`}>
         <a href="/" className="logo">
-          <h1>GENO SAFARIS</h1>
+          <h1>GENO SAFARiIS</h1>
         </a>
 
         <div
