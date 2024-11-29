@@ -7,7 +7,7 @@ html {
 }
 
 *::-webkit-scrollbar {
-  width: 5px;
+  width: 2px;
 }
 
 *::-webkit-scrollbar-track {
@@ -15,7 +15,7 @@ html {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgba(51, 65, 85, 0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 10px;
   max-height: 50px;
 }
