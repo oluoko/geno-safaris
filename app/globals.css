@@ -2,22 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* scrollbar*/
 *::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
+  background: transparent;
 }
 
 *::-webkit-scrollbar-track {
-  background: #020617;
+  background: transparent;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgba(51, 65, 85, 0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 15px;
-  border: 2px solid #020617;
-  max-height: 80px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: rgba(51, 65, 85, 0.4);
+  background: #f97316;
 }

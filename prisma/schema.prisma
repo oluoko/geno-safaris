@@ -14,51 +14,64 @@ datasource db {
 }
 
 model User {
-  id          String         @id @default(uuid())
-  clerkUserId String         @unique
-  email       String         @unique
+  id          String   @id @default(uuid())
+  clerkUserId String   @unique
+  email       String   @unique
   name        String?
   imageUrl    String?
-  createdAt   DateTime       @default(now())
-  updatedAt   DateTime       @updatedAt
-  entries     JournalEntry[]
-  analyses    Analysis[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  bookings Booking[]
 }
 
-model JournalEntry {
+model Tour {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  location    String
+  price       Float
+  duration    Int // Duration in days
+  imageUrl    String // Cover image URL for the tour
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  bookings Booking[]
+}
+
+model Booking {
   id        String   @id @default(uuid())
+  userId    String
+  tourId    String
+  status    status   @default(PENDING)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  // Relation to user
-  userId String
-  user   User   @relation(fields: [userId], references: [id])
-
-  content String @db.Text
-
-  analysis Analysis?
-
-  @@unique([userId, id])
+  user    User     @relation(fields: [userId], references: [id])
+  tour    Tour     @relation(fields: [tourId], references: [id])
+  payment Payment?
 }
 
-model Analysis {
-  id        String   @id @default(uuid())
-  createdAt DateTime
-  updatedAt DateTime @updatedAt
+model Payment {
+  id            String        @id @default(uuid())
+  bookingId     String        @unique
+  amount        Float
+  method        PaymentMethod
+  status        status        @default(PENDING)
+  transactionId String? // For Mpesa or Visa transaction tracking
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
 
-  entryId String
-  entry   JournalEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+  booking Booking @relation(fields: [bookingId], references: [id])
+}
 
-  userId String
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+enum PaymentMethod {
+  MPESA
+  VISA
+}
 
-  mood           String
-  summary        String  @db.Text
-  color          String
-  negative       Boolean
-  subject        String
-  sentimentScore Float   @default(0)
-
-  @@unique([entryId])
-  @@index([userId])
+enum status {
+  PENDING
+  COMPLETED
+  FAILED
 }

@@ -4,7 +4,7 @@ import './ShinyButton.css'
 const ShinyButton = ({ text }) => {
   return (
     <motion.button
-      className="px-4 py-3 my-1 rounded-lg relative radial-gradient w-[150px] md:w-[250px] h-[50px] md:h-auto flex flex-col items-center justify-center"
+      className="p-1 px-3 my-1 rounded-full relative radial-gradient h-[36px] w-[120px] flex flex-col items-center justify-center"
       initial={{ '--x': '100%', scale: 1 }}
       animate={{ '--x': '-100%' }}
       whileTap={{ scale: 0.97 }}
@@ -24,7 +24,7 @@ const ShinyButton = ({ text }) => {
         },
       }}
     >
-      <span className="text-neutral-100 tracking-wide font-light h-full w-full flex flex-col items-center justify-center relative linear-mask text-lg md:text-2xl">
+      <span className="text-neutral-100 tracking-wide font-semibold h-full w-full flex flex-col items-center justify-center relative linear-mask text-md hover:text-[#f97316]">
         {text}
       </span>
       <span className="block absolute inset-0 rounded-lg p-px linear-overlay" />

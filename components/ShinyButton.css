@@ -10,15 +10,15 @@
 .linear-mask {
   -webkit-mask-image: linear-gradient(
     -75deg,
-    white calc(var(--x) + 20%),
+    #f97316 calc(var(--x) + 20%),
     transparent calc(var(--x) + 30%),
-    white calc(var(--x) + 100%)
+    #f97316 calc(var(--x) + 100%)
   );
   mask-image: linear-gradient(
     -75deg,
-    white calc(var(--x) + 20%),
+    #f97316 calc(var(--x) + 20%),
     transparent calc(var(--x) + 30%),
-    white calc(var(--x) + 100%)
+    #f97316 calc(var(--x) + 100%)
   );
 }
 

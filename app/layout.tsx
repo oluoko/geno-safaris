@@ -15,9 +15,9 @@ const geistMono = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Reflectify: Mood Journal',
+  title: 'Geno Safaris',
   description: 'Your personal journal',
-  icons: { icon: '/Rlogo w.svg' },
+  icons: { icon: '/company images/logo/logo1.png' },
 }
 
 export default function RootLayout({
@@ -29,7 +29,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen flex items-center justify-center `}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased flex items-center justify-center `}
         >
           {children}
         </body>
