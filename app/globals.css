@@ -6,10 +6,8 @@ html {
   scroll-behavior: smooth;
 }
 
-/* scrollbar*/
 *::-webkit-scrollbar {
-  width: 8px;
-  background: transparent;
+  width: 5px;
 }
 
 *::-webkit-scrollbar-track {
@@ -17,8 +15,9 @@ html {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 15px;
+  background-color: rgba(51, 65, 85, 0.4);
+  border-radius: 10px;
+  max-height: 50px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
