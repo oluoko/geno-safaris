@@ -7,11 +7,7 @@ interface DashboardLayoutProps {
 }
 
 const DashboardLayout = ({ children }: DashboardLayoutProps) => {
-  return (
-    <div className="h-screen w-screen relative bg-slate-950 text-slate-300 flex">
-      {children}
-    </div>
-  )
+  return <div>{children}</div>
 }
 
 export default DashboardLayout

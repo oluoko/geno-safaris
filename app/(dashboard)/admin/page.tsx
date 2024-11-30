@@ -1,10 +1,9 @@
-import { getUserByClerkId } from '@/utils/auth'
-
 const Admin = () => {
-  const user = getUserByClerkId()
-  console.log('User', user)
-
-  return <div>Welcome to the admin page.</div>
+  return (
+    <div>
+      <h2 className="font-bold text-2xl">Admin Landing Page</h2>
+    </div>
+  )
 }
 
 export default Admin
