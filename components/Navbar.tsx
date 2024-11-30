@@ -14,15 +14,19 @@ import { useAuth, UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import ShinyButton from './ShinyButton'
 
-const Navbar = () => {
+interface NavbarProps {
+  isAdmin: boolean
+}
+
+const Navbar = ({ isAdmin }: NavbarProps) => {
   const { userId } = useAuth()
-  const href = userId ? '/admin' : '/new-user'
+  const href = userId ? '/' : '/new-user'
   const [menuOpen, setMenuOpen] = useState(false)
 
   const navLinks = [
-    ['About', '#about', 'nav-links', aboutIcon],
-    ['Destinations', '#destinations', 'nav-links', servicesIcon],
-    ['Contact', '#contacts', 'nav-links', contactIcon],
+    ['About', '#about', 'nav-links'],
+    ['Destinations', '#destinations', 'nav-links'],
+    ['Contact', '#contacts', 'nav-links'],
   ]
 
   return (
@@ -52,16 +56,29 @@ const Navbar = () => {
         } flex flex-col md:flex-row items-end md:items-center bg-inherit md:gap-10 absolute md:relative top-[30px] md:top-0 right-[5px] w-2/5 md:w-auto z-40 transition-all duration-300 rounded-b-xl md:rounded-none shadow-black/15 shadow-lg p-4 md:p-0`}
         onClick={() => setMenuOpen(false)}
       >
-        {navLinks.map(([title, url, className]) => (
-          <li key={title} className="my-1 md:my-0 mr-2 md:mr-0">
+        {navLinks.map(([title, url, className, Icon], index) => (
+          <li key={index} className="my-1 md:my-0 mr-2 md:mr-0">
             <Link
               href={url}
               className={`${className} text-lg md:text-xl font-extrabold hover:text-orange-500 focus:text-orange-500 `}
             >
               {title}
+              {Icon && React.createElement(Icon, { className: 'ml-2' })}
             </Link>
           </li>
         ))}
+
+        {isAdmin && (
+          <li className="my-1 md:my-0 mr-2 md:mr-0">
+            <Link
+              href={'/admin'}
+              className={`nav-links text-lg md:text-xl font-extrabold hover:text-orange-500 focus:text-orange-500`}
+            >
+              Administration
+            </Link>
+          </li>
+        )}
+
         {userId ? (
           <UserButton />
         ) : (

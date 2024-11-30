@@ -1,14 +1,20 @@
-'use client'
-
 import About from '@/components/HomeScreen/About'
 import Destinations from '@/components/HomeScreen/Destinations'
 import Contacts from '@/components/HomeScreen/Contacts'
 import Navbar from '@/components/Navbar'
+import { getUserByClerkId } from '@/utils/auth'
+import { auth } from '@clerk/nextjs/server'
 
-export default function HomeScreen() {
+export default async function HomeScreen() {
+  const { userId } = await auth()
+  let isAdmin = false
+  if (userId) {
+    const user = await getUserByClerkId()
+    isAdmin = user?.role === 'ADMIN' || user?.role === 'MAIN_ADMIN'
+  }
   return (
     <div className="w-screen">
-      <Navbar />
+      <Navbar isAdmin={isAdmin} />
       <div
         id="home"
         className="h-screen w-full mt-[60px] md:mt-[70px] p-4 md:px-10"

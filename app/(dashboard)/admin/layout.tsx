@@ -16,6 +16,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { UserButton } from '@clerk/nextjs'
 import { usePathname } from 'next/navigation'
+import AdminFallBack from '@/components/Admin/AdminFallback'
+import { useUser } from '@clerk/nextjs'
+import { prisma } from '@/utils/db'
 
 interface AdminLayoutProps {
   children: ReactNode
@@ -33,7 +36,10 @@ const links = [
 
 const AdminLayout = ({ children }: AdminLayoutProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [isAdmin, setIsAdmin] = useState(false)
+  const [loading, setLoading] = useState(true)
   const path = usePathname()
+  const user = useUser()
 
   useEffect(() => {
     const handleResize = () => {
@@ -45,6 +51,25 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen)
   }
+
+  const getUser = async () => {
+    setLoading(true)
+    const loggedInUser = await prisma.user.findUnique({
+      where: {
+        clerkUserId: user.user?.id as string,
+      },
+    })
+
+    if (loggedInUser?.role === 'ADMIN' || loggedInUser?.role === 'MAIN_ADMIN') {
+      setIsAdmin(true)
+      setLoading(false)
+    } else {
+      setIsAdmin(false)
+      setLoading(false)
+      return <AdminFallBack />
+    }
+  }
+
   return (
     <div className="h-screen w-screen relative bg-black text-slate-200 flex">
       {/* Sidebar */}

@@ -1,3 +1,10 @@
+'use client'
+
+import { prisma } from '@/utils/db'
+import { useUser } from '@clerk/nextjs'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+
 import { getUserByClerkId } from '@/utils/auth'
 import Image from 'next/image'
 
