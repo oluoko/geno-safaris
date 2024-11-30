@@ -3,7 +3,7 @@ import { SignUp } from '@clerk/nextjs'
 
 const SignUpPage = () => {
   return (
-    <div className="flex justify-between h-screen w-screen bg-slate-950 text-">
+    <div className="flex justify-between h-screen w-screen bg-black">
       <div className="hidden md:flex w-3/5">
         <AuthImage textColor="slate-300" />
       </div>

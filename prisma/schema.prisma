@@ -17,8 +17,12 @@ model User {
   id          String   @id @default(uuid())
   clerkUserId String   @unique
   email       String   @unique
-  name        String?
+  firstName   String?
+  lastName    String?
   imageUrl    String?
+  isAdmin     Boolean  @default(false)
+  isMainAdmin Boolean  @default(false)
+  role        UserRole @default(USER)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -74,4 +78,10 @@ enum status {
   PENDING
   COMPLETED
   FAILED
+}
+
+enum UserRole {
+  USER
+  ADMIN
+  MAIN_ADMIN
 }

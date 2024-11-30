@@ -3,7 +3,7 @@ import { SignIn } from '@clerk/nextjs'
 
 const SignInPage = () => {
   return (
-    <div className="flex justify-between h-screen w-screen bg-slate-950 text-">
+    <div className="flex justify-between h-screen w-screen bg-black">
       <div className="flex flex-col justify-center items-center w-full md:w-1/3">
         <SignIn />
       </div>

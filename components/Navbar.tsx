@@ -20,7 +20,7 @@ const Navbar = () => {
 
   const navLinks = [
     ['About', '#about', 'nav-links', aboutIcon],
-    ['Service', '#services', 'nav-links', servicesIcon],
+    ['Destinations', '#destinations', 'nav-links', servicesIcon],
     ['Contact', '#contacts', 'nav-links', contactIcon],
   ]
 
