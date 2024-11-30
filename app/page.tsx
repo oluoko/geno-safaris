@@ -1,17 +1,11 @@
 'use client'
-import { useAuth } from '@clerk/nextjs'
-import Link from 'next/link'
-import Image from 'next/image'
-import ShinyButton from '@/components/ShinyButton'
+
 import About from '@/components/HomeScreen/About'
 import Destinations from '@/components/HomeScreen/Destinations'
 import Contacts from '@/components/HomeScreen/Contacts'
 import Navbar from '@/components/Navbar'
 
 export default function HomeScreen() {
-  const { userId } = useAuth()
-  const href = userId ? '/journal' : '/new-user'
-
   return (
     <div className="w-screen">
       <Navbar />

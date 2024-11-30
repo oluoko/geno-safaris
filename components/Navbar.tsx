@@ -16,6 +16,7 @@ import ShinyButton from './ShinyButton'
 
 const Navbar = () => {
   const { userId } = useAuth()
+  const href = userId ? '/admin' : '/new-user'
   const [menuOpen, setMenuOpen] = useState(false)
 
   const navLinks = [
@@ -64,7 +65,7 @@ const Navbar = () => {
         {userId ? (
           <UserButton />
         ) : (
-          <Link href={'/sign-in'}>
+          <Link href={href}>
             <ShinyButton text="Sign In/Up" />
           </Link>
         )}

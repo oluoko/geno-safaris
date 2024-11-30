@@ -26,7 +26,7 @@ const createNewUser = async () => {
     })
   }
 
-  redirect('/journal')
+  redirect('/admin')
 }
 
 const NewUser = async () => {

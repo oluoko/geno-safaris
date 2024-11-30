@@ -20,8 +20,6 @@ model User {
   firstName   String?
   lastName    String?
   imageUrl    String?
-  isAdmin     Boolean  @default(false)
-  isMainAdmin Boolean  @default(false)
   role        UserRole @default(USER)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

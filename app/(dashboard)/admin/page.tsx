@@ -1,5 +1,10 @@
+import { getUserByClerkId } from '@/utils/auth'
+
 const Admin = () => {
-  return <div>Admin</div>
+  const user = getUserByClerkId()
+  console.log('User', user)
+
+  return <div>Welcome to the admin page.</div>
 }
 
 export default Admin
