@@ -55,7 +55,7 @@ const Footer = () => {
   return (
     <div className="w-full h-[270px] md:h-[350px] bg-black text-slate-400/80 p-2 md:px-10 flex flex-col justify-center items-center">
       <div className="grid grid-cols-2 lg:grid-cols-4 w-full h-10/12">
-        <div className="grid my-4 md:my-2 mx-3 md:mx-6 h-full">
+        <div className="grid my-4 md:my-2 mx-3 md:mx-6 content-start h-full">
           <h3 className="text-xl md:text-2xl font-bold text-white mb-4 grid ">
             <span>Geno Safaris</span>
             <span className="text-sm md:text-base text-white/60">
@@ -68,7 +68,16 @@ const Footer = () => {
           </span>
         </div>
 
-        <div className="grid my-4 md:my-2 mx-3 md:mx-6   h-full">
+        <div className="grid my-4 md:my-2 mx-3 md:mx-6 content-start  h-full">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-4 ">
+            Write to our email:
+          </h3>
+          <p className="mb-2">For any inquiries or feedback write to us at:</p>
+          <a href="mailto:genosafaris@gmail.com" className="mb-2">
+            <span className="text-white hover:text-[#f97316] ">
+              genosafaris@gmail.com
+            </span>
+          </a>
           <h3 className="text-xl md:text-2xl font-bold text-white mb-4 ">
             Follow us on:
           </h3>
@@ -87,7 +96,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="grid my-4 md:my-2 mx-3 md:mx-6   h-full">
+        <div className="grid my-4 md:my-2 mx-3 md:mx-6 content-start  h-full">
           <h3 className="text-xl md:text-2xl font-bold text-white mb-4 ">
             Created by:
           </h3>
