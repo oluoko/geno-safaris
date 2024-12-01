@@ -70,15 +70,6 @@ const Footer = () => {
 
         <div className="grid my-4 md:my-2 mx-3 md:mx-6 content-start  h-full">
           <h3 className="text-xl md:text-2xl font-bold text-white mb-4 ">
-            Write to our email:
-          </h3>
-          <p className="mb-2">For any inquiries or feedback write to us at:</p>
-          <a href="mailto:genosafaris@gmail.com" className="mb-2">
-            <span className="text-white hover:text-[#f97316] ">
-              genosafaris@gmail.com
-            </span>
-          </a>
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-4 ">
             Follow us on:
           </h3>
           <p className="mb-2">
@@ -93,6 +84,32 @@ const Footer = () => {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+
+        <div className="grid my-4 md:my-2 mx-3 md:mx-6 content-start h-full">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-4 ">
+            Write to our email:
+          </h3>
+          <p className="mb-2">For any inquiries or feedback write to us at:</p>
+          <a href="mailto:genosafaris@gmail.com" className="mb-2">
+            <span className="text-white hover:text-[#f97316] ">
+              genosafaris@gmail.com
+            </span>
+          </a>
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-4 ">
+            Quick Access
+          </h3>
+          <div className="grid grid-cols-2 gap-2">
+            <Link href="/">
+              <span className=" hover:text-[#f97316]">Home</span>
+            </Link>
+            <Link href="/destinations">
+              <span className=" hover:text-[#f97316]">Destination</span>
+            </Link>
+            <Link href="/blog">
+              <span className=" hover:text-[#f97316]">Blog</span>
+            </Link>
           </div>
         </div>
 

@@ -49,7 +49,6 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
   const isAdmin =
     user?.publicMetadata.role === 'admin' ||
     user?.publicMetadata.role === 'main_admin'
-  console.log('isAdim', isAdmin)
 
   if (!isAdmin) return <AdminFallBack />
 
