@@ -3,9 +3,7 @@ import Image from 'next/image'
 const AuthImage = ({ textColor }) => {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
-      <div
-        className={`text-xl md:text-2xl font-bold w-2/3 mb-4 text-${textColor}`}
-      >
+      <div className={`text-xl md:text-2xl font-bold w-2/3 mb-4 text-white`}>
         Welcome to Geno Safaris. For the best travel experience in East Africa.
         Tours and Travel Hotel, Airport,City to City , Private Transfers. Pick
         ups and Drop off.
@@ -17,9 +15,7 @@ const AuthImage = ({ textColor }) => {
         height={180}
         className="w-2/5"
       />
-      <div className={`text-5xl mt-4 text-${textColor}`}>
-        Beyond Expectations
-      </div>
+      <div className={`text-5xl mt-4 text-white`}>Beyond Expectations</div>
     </div>
   )
 }

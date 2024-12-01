@@ -1,8 +1,9 @@
-import { authMiddleware } from '@clerk/nextjs/server'
-import { NextResponse } from 'next/server'
+import { authMiddleware, clerkClient } from '@clerk/nextjs/server'
+
+const publicRoutes = ['/']
 
 export default authMiddleware({
-  publicRoutes: ['/'],
+  publicRoutes,
 })
 
 export const config = {
