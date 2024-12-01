@@ -58,11 +58,11 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
   }
 
   return (
-    <div className="h-screen w-screen relative bg-black text-slate-200 flex">
+    <div className="h-screen w-screen relative bg-black text-slate-200 flex ">
       {/* Sidebar */}
       <aside
         className={`${
-          isSidebarOpen ? 'w-[27%] md:w-[15%]' : 'w-[10%] md:w-[5%]'
+          isSidebarOpen ? 'w-[50] md:w-[250px] ' : 'w-[40px] md:w-[60px]'
         } transition-all duration-300 h-full border-r border-slate-400/30 overflow-hidden flex flex-col items-center `}
       >
         <Link href="/" className=" h-[60px] p-4 text-center">
