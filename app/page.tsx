@@ -2,16 +2,15 @@ import About from '@/components/HomeScreen/About'
 import Destinations from '@/components/HomeScreen/Destinations'
 import Contacts from '@/components/HomeScreen/Contacts'
 import Navbar from '@/components/Navbar'
-import { getUserByClerkId } from '@/utils/auth'
-import { auth } from '@clerk/nextjs/server'
+import { currentUser } from '@clerk/nextjs/server'
 
 export default async function HomeScreen() {
-  const { userId } = await auth()
-  let isAdmin = false
-  if (userId) {
-    const user = await getUserByClerkId()
-    isAdmin = user?.role === 'ADMIN' || user?.role === 'MAIN_ADMIN'
-  }
+  const user = await currentUser()
+
+  const isAdmin =
+    user?.publicMetadata.role === 'admin' ||
+    user?.publicMetadata.role === 'main_admin'
+
   return (
     <div className="w-screen">
       <Navbar isAdmin={isAdmin} />

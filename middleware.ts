@@ -1,9 +1,7 @@
-import { authMiddleware, clerkClient } from '@clerk/nextjs/server'
-
-const publicRoutes = ['/']
+import { authMiddleware } from '@clerk/nextjs/server'
 
 export default authMiddleware({
-  publicRoutes,
+  publicRoutes: ['/'],
 })
 
 export const config = {
