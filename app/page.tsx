@@ -1,16 +1,17 @@
+'use client'
+
 import About from '@/components/HomeScreen/About'
 import Destinations from '@/components/HomeScreen/Destinations'
 import Contacts from '@/components/HomeScreen/Contacts'
 import Navbar from '@/components/Navbar'
-import { currentUser } from '@clerk/nextjs/server'
+import { useUser } from '@clerk/nextjs'
 
-export default async function HomeScreen() {
-  const user = await currentUser()
+const HomeScreen = () => {
+  const { user } = useUser()
 
   const isAdmin =
     user?.publicMetadata.role === 'admin' ||
     user?.publicMetadata.role === 'main_admin'
-
   return (
     <div className="w-screen">
       <Navbar isAdmin={isAdmin} />
@@ -30,3 +31,5 @@ export default async function HomeScreen() {
     </div>
   )
 }
+
+export default HomeScreen
