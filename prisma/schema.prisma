@@ -20,38 +20,49 @@ model User {
   firstName   String?
   lastName    String?
   imageUrl    String?
-  role        UserRole @default(USER)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
   bookings Booking[]
 }
 
-model Tour {
-  id          String   @id @default(uuid())
-  title       String
-  description String
-  location    String
-  price       Float
-  duration    Int // Duration in days
-  imageUrl    String // Cover image URL for the tour
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+model Destination {
+  id              String   @id @default(uuid())
+  title           String
+  description     Json
+  location        String
+  headCountMin    Int
+  headCountMax    Int
+  durationLimit   Int // Duration in days
+  amountPerHead   Float
+  hasReturnFlight Boolean  @default(false) // Indicates if return flight is an option
+  laptopImageUrl  String
+  mobileImageUrl  String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 
   bookings Booking[]
 }
 
 model Booking {
-  id        String   @id @default(uuid())
-  userId    String
-  tourId    String
-  status    status   @default(PENDING)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id             String   @id @default(uuid())
+  userId         String
+  destinationId  String? // Optional: Null for personalized bookings
+  customLocation String? // For personalized bookings
+  startDate      DateTime
+  endDate        DateTime
+  headCount      Int
+  returnFlight   Boolean
+  personalized   Boolean  @default(false) // True for personalized bookings
+  amount         Float? // Amount for the booking, set by the admin for personalized bookings
+  status         Status   @default(PENDING)
+  adminResponse  String? // Details provided by admin for personalized bookings
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 
-  user    User     @relation(fields: [userId], references: [id])
-  tour    Tour     @relation(fields: [tourId], references: [id])
-  payment Payment?
+  user        User         @relation(fields: [userId], references: [id])
+  destination Destination? @relation(fields: [destinationId], references: [id]) // Nullable for custom bookings
+  payment     Payment?
 }
 
 model Payment {
@@ -59,7 +70,7 @@ model Payment {
   bookingId     String        @unique
   amount        Float
   method        PaymentMethod
-  status        status        @default(PENDING)
+  status        Status        @default(PENDING)
   transactionId String? // For Mpesa or Visa transaction tracking
   createdAt     DateTime      @default(now())
   updatedAt     DateTime      @updatedAt
@@ -72,14 +83,8 @@ enum PaymentMethod {
   VISA
 }
 
-enum status {
+enum Status {
   PENDING
   COMPLETED
   FAILED
-}
-
-enum UserRole {
-  USER
-  ADMIN
-  MAIN_ADMIN
 }
