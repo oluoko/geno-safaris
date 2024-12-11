@@ -23,7 +23,7 @@ const Destinations = () => {
           <div className="small-image-upload">
             <div className="">Upload Destination image for small screens</div>
 
-            <div className="rounded-xl p-2 bg-slate-400/30  text-white text-sm md:text-xl my-2">
+            <div className="rounded-xl p-2 bg-slate-400/30  text-white text-sm md:text-xl my-2 hover:bg-[#f97316] hover:text-black">
               <UploadButton
                 endpoint="imageUploader"
                 onClientUploadComplete={(res) => {
@@ -41,7 +41,7 @@ const Destinations = () => {
           <div className="large-image-upload">
             <div className="">Upload Destination image for large screens</div>
 
-            <div className="rounded-xl p-2 bg-slate-400/30  text-white text-sm md:text-xl my-2">
+            <div className="rounded-xl p-2 bg-slate-400/30  text-white text-sm md:text-xl my-2 hover:bg-[#f97316] hover:text-black">
               <UploadButton
                 endpoint="imageUploader"
                 onClientUploadComplete={(res) => {
@@ -97,7 +97,7 @@ const Destinations = () => {
       </div>
 
       <div
-        className="rounded-xl p-2 bg-slate-400/30 text-white text-sm md:text-xl"
+        className="rounded-xl p-2 bg-slate-400/30 text-white text-sm md:text-xl flex justify-center hover:bg-[#f97316] hover:text-black cursor-pointer"
         onClick={() => createDestination()}
       >
         Create Destination
