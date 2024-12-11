@@ -8,8 +8,8 @@ import smallImageTemplate from '@/public/company images/vanPhone.jpg'
 import largeImageTemplate from '@/public/company images/bus.jpg'
 
 const Destinations = () => {
-  const [smallImageUrl, setSmallImageUrl] = useState<string>('')
-  const [largeImageUrl, setLargeImageUrl] = useState<string>('')
+  const [mobileImageUrl, setMobileImageUrl] = useState<string>('')
+  const [laptopImageUrl, setLaptopImageUrl] = useState<string>('')
   const createDestination = async () => {
     toast.success('Destination created successfully')
   }
@@ -28,7 +28,7 @@ const Destinations = () => {
                 endpoint="imageUploader"
                 onClientUploadComplete={(res) => {
                   console.log('Files:: ', res)
-                  setSmallImageUrl(res[0].url)
+                  setMobileImageUrl(res[0].url)
                   toast.success('Image uploaded successfully')
                 }}
                 onUploadError={(error: Error) => {
@@ -46,7 +46,7 @@ const Destinations = () => {
                 endpoint="imageUploader"
                 onClientUploadComplete={(res) => {
                   console.log('Files:: ', res)
-                  setLargeImageUrl(res[0].url)
+                  setLaptopImageUrl(res[0].url)
                   toast.success('Image uploaded successfully')
                 }}
                 onUploadError={(error: Error) => {
@@ -59,37 +59,37 @@ const Destinations = () => {
         </div>
         {/* form for uploading other details */}{' '}
         <div className="w-full md:w-1/3">
-          <div className="flex justify-between gap-2">
-            {smallImageUrl !== '' ? (
+          <div className="grid grid-cols-2">
+            {mobileImageUrl !== '' ? (
               <Image
-                src={smallImageUrl}
+                src={mobileImageUrl}
                 alt="Uploaded Image"
-                width={50}
-                height={100}
-                className="rounded-xl  my-1 w-1/3"
+                width={100}
+                height={200}
+                className="rounded-xl  my-1  object-cover"
               />
             ) : (
               <Image
                 src={smallImageTemplate}
                 alt="small screen image template"
                 width={100}
-                className="rounded-xl my-1 w-1/3"
+                className="rounded-xl my-1 object-cover"
               />
             )}
-            {largeImageUrl !== '' ? (
+            {laptopImageUrl !== '' ? (
               <Image
-                src={largeImageUrl}
+                src={laptopImageUrl}
                 alt="Uploaded Image"
-                width={100}
-                height={50}
-                className="rounded-xl  my-1 w-2/3"
+                width={200}
+                height={100}
+                className="rounded-xl  my-1 object-cover"
               />
             ) : (
               <Image
                 src={largeImageTemplate}
                 alt="small screen image template"
-                width={100}
-                className="rounded-xl my-1 w-2/3"
+                width={200}
+                className="rounded-xl my-1  object-cover"
               />
             )}
           </div>
